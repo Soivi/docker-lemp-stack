@@ -1,0 +1,27 @@
+version: '2'
+services:
+  nginx:
+    image: nginx:1.11
+    ports:
+      - "80:80"
+    links:
+      - mysql
+      - fpm
+    volumes:
+      - ./www/tester:/var/www/tester
+      - ./configures/conf.d:/etc/nginx/conf.d:ro
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=testerdb
+      - MYSQL_USER=testeruser
+      - MYSQL_PASSWORD=testerpw
+
+  fpm:
+    build: images/nginxphp
+    volumes:
+      - ./www/tester:/var/www/tester
+    links:
+      - mysql
