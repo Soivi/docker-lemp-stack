@@ -44,3 +44,25 @@ works
 $ sudo docker-compose -f docker-compose.lemp.yaml stop
 ```
 
+## Useful commands
+
+Stop docker-compose file containers
+```
+$ sudo docker-compose -f <filename>.yaml stop
+```
+Delete docker-compose file containers and volumes
+```
+$ sudo docker-compose -f <filename>.yaml rm -v
+```
+Stop all containers
+```
+$ sudo docker stop $(sudo docker ps -a -q)
+```
+Delete all containers and volumes
+```
+$ sudo docker rm -v $(sudo docker ps -a -q)
+```
+Delete all images
+```
+$ sudo docker rmi $(sudo docker images -q)
+```
