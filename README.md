@@ -1,6 +1,11 @@
 # docker-lemp-stack
 Default docker-lemp-stack
 
+## Installation
+```
+$ sudo apt install git curl
+```
+
 ## Deploy
 ```
 $ git clone https://github.com/Soivi/docker-lemp-stack
